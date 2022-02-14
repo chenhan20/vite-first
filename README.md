@@ -5,3 +5,13 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 ## Recommended IDE Setup
 
 - [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+
+
+
+
+### 部屬github網頁須注意
+
+### vite.config.js defineConfig須設定靜態專案的網址 官方說這樣做 但感覺有點鳥蛋==
+```
+ base: '/vite-first-build'
+```
