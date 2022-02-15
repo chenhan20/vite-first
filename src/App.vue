@@ -2,17 +2,26 @@
 
 import { ref } from 'vue'
 const scroll = ref(false)
-const total = ref(2)
+const total = ref(10)
 const animationDuration = 10
+// 只能有兩張同時做淡入淡出動畫
+const active = ref(0)
+const preactive = ref(0)
+
+
 
 const img = function (n) {
   return {
-    // backgroundImage: `url(https://picsum.photos/1920/1200?${n})`,
-    backgroundImage: `url(/tesla_${n}.jpg)`,
-    animationDuration: `${animationDuration}s`,
-    animationDelay: `${(n-1) * animationDuration / 2}s`
+    backgroundImage: `url(https://picsum.photos/1920/1200?${n})`,
+    // backgroundImage: `url(/tesla_${n}.jpg)`,
+    animationDuration: `${animationDuration}s`
   }
 }
+
+setInterval(function () {
+  preactive.value = active.value
+  active.value = (active.value + 1 + total.value) % total.value
+}, animationDuration / 2 * 1000)
 
 window.addEventListener('scroll', function () {
   scroll.value = (window.scrollY > 0)
@@ -21,9 +30,15 @@ window.addEventListener('scroll', function () {
 </script>
 
 <template>
+  <div class="text"></div>
   <div class="kv" :class="{ scroll }">
     <ul class="kvList">
-      <li v-for="n in total" :style="img(n)" :key="n"></li>
+      <li
+        v-for="n in total"
+        :style="img(n)"
+        :key="n"
+        :class="{ animate: active === n - 1 || preactive === n - 1 }"
+      ></li>
     </ul>
   </div>
 </template>
@@ -42,13 +57,11 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: orange;
 }
 .kvList {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: darkgray;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -61,12 +74,6 @@ body {
 
 .kvList > li {
   opacity: 0;
-  animation-name: kvAnimate;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.kvList > li {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -75,11 +82,15 @@ body {
   background-size: 150% auto;
   list-style: none;
 }
+.kvList > li.animate {
+  animation-name: kvAnimate;
+  animation-timing-function: linear;
+}
 
 @keyframes kvAnimate {
   0% {
     opacity: 0;
-    background-size: 150% auto;
+    background-size: 200% auto;
   }
   25% {
     opacity: 1;
@@ -92,7 +103,7 @@ body {
   }
   to {
     opacity: 0;
-    background-size: 120% auto;
+    background-size: 100% auto;
   }
 }
 </style>
