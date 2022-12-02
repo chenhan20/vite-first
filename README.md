@@ -14,11 +14,12 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 ```json
  base: '/vite-first'
  
- //新方法 執行這兩行 就會把build的推到gh-pages
+ //新方法 執行這兩行 就會把build的推到gh-pages 不用再開一個專案 用同一個就可以了
  npm run build
  git add dist
  git commit -m 'update gh-pages'
  git subtree push --prefix dist origin gh-pages
+ 
 
 ```
 

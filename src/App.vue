@@ -54,7 +54,20 @@ window.addEventListener('scroll', function () {
 body {
   height: 200vh;
 }
-
+h1{
+  font-family: Roboto Condensed,sans-serif;
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    z-index: 1;
+}
+h2{
+  font-family: Roboto Condensed,sans-serif;
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    z-index: 1;
+}
 .kv {
   position: relative;
   width: 100vw;
