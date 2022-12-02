@@ -8,13 +8,14 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 ### 部屬github網頁須注意
 
-### vite.config.js defineConfig須設定靜態專案的網址 官方說這樣做 但感覺有點鳥蛋==
+~~vite.config.js defineConfig須設定靜態專案的網址 官方說這樣做 但感覺有點鳥蛋~~
 
+### NEW! 新方法不用再開一個專案 用同一個就可以了 要部屬上靜態頁面就是用GitBash here 執行deploy.sh就可以了
 
 ```json
  base: '/vite-first'
  
- //新方法 執行這兩行 就會把build的推到gh-pages 不用再開一個專案 用同一個就可以了
+ //新方法 執行這兩行 就會把build的推到gh-pages
  npm run build
  git add dist
  git commit -m 'update gh-pages'
@@ -24,4 +25,5 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 ```
 
 ### 參考資料
-(Github靜態頁面設定) [https://gist.github.com/sunjc826/3ab0cb60be87935a0809b66e57bf9d79]
+
+- [Github靜態頁面設定](https://gist.github.com/sunjc826/3ab0cb60be87935a0809b66e57bf9d79)
