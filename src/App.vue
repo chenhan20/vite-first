@@ -31,6 +31,8 @@ window.addEventListener('scroll', function () {
 
 <template>
   <div class="text"></div>
+  <h1>STEVE | CHUANG</h1>
+  <h2>學習LINE主視覺滑動效果製作</h2>
   <div class="kv" :class="{ scroll }">
     <ul class="kvList">
       <li
