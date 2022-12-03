@@ -1,6 +1,9 @@
 <script setup>
 
 import { ref } from 'vue'
+
+const title = 'STEVE | CHUANG '
+
 const scroll = ref(false)
 const total = ref(10)
 const animationDuration = 10
@@ -30,8 +33,7 @@ window.addEventListener('scroll', function () {
 </script>
 
 <template>
-  <div class="text"></div>
-  <h1>STEVE | CHUANG</h1>
+  <h1>{{ title }}</h1>
   <h2>學習LINE主視覺滑動效果製作</h2>
   <div class="kv" :class="{ scroll }">
     <ul class="kvList">
@@ -54,25 +56,37 @@ window.addEventListener('scroll', function () {
 body {
   height: 200vh;
 }
-h1{
-  font-family: Roboto Condensed,sans-serif;
-    position: absolute;
-    left: 20%;
-    top: 30%;
-    z-index: 1;
-}
-h2{
-  font-family: Roboto Condensed,sans-serif;
-    position: absolute;
-    left: 20%;
-    top: 40%;
-    z-index: 1;
-}
+
 .kv {
   position: relative;
   width: 100vw;
   height: 100vh;
 }
+h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  z-index: 1;
+  font-size: 80px;
+  white-space: nowrap;
+  color: #fff;
+  text-align: left;
+}
+
+h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  position: absolute;
+  left: 10%;
+  top: 30%;
+  z-index: 1;
+  font-size: 30px;
+  text-indent: 8px;
+  font-weight: 400;
+  color: #fff;
+  text-align: left;
+}
+
 .kvList {
   position: absolute;
   width: 100%;
